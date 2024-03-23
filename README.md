@@ -23,4 +23,4 @@ możesz to zrobić [tutaj](https://github.com/YasInvolved/JasperanczykAssets)
     `git push origin main`
 10. Właśnie dodałeś swój plik. Gratulacje!
 
-||Jomek nie placz ze trudne, bo inaczej sie nie da||
+PS. Nie placz ze trudne, bo inaczej sie nie da 😉
