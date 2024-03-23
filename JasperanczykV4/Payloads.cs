@@ -95,9 +95,12 @@ namespace JasperanczykV4
                 {
                     try
                     {
-                        int result = mciSendString("Set cdaudio door open wait", null, 0, 0);
-                        Thread.Sleep(3000);
-                        result = mciSendString("Set cdaudio door closed", null, 0, 0);
+                        for (int i = 0; i < 10; i++)
+                        {
+                            int result = mciSendString("Set cdaudio door open wait", null, 0, 0);
+                            Thread.Sleep(1500);
+                            result = mciSendString("Set cdaudio door closed", null, 0, 0);
+                        }
                     }
                     catch (Exception ex)
                     {
