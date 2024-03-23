@@ -46,6 +46,3 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: "App*"
-          token: "${{ secrets.TOKEN }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
