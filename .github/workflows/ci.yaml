@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - "*.*.*"
+      - "v*.*"
     
 
 jobs:
@@ -16,6 +16,7 @@ jobs:
           - kind: windows
             os: windows-latest
             target: win-x64
+    
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -36,12 +37,7 @@ jobs:
           dotnet publish -c Release -o "$release_name" --self-contained true
 
           # Pack files
-          if [ "${{ matrix.target }}" == "win-x64" ]; then
-            # Pack to zip for Windows
-            7z a -tzip "${release_name}.zip" "./${release_name}/*"
-          else
-          tar czvf "${release_name}.tar.gz" "$release_name"
-          fi
+          7z a -tzip "${release_name}.zip" "./${release_name}/*"
 
           # Delete output directory
           rm -r "$release_name"
@@ -50,5 +46,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: "App*"
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
