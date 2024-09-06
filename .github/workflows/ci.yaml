@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           tag=$(git describe --tags --abbrev=0)
-          release_name="App-$tag-${{ matrix.target }}"
+          release_name="Jasperanczyk-$tag-${{ matrix.target }}"
 
           # Build everything
           dotnet publish -c Release -o "$release_name" --self-contained true
